@@ -2,6 +2,8 @@ import styled from 'styled-components';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import Image from 'react-bootstrap/Image';
+import Modal from 'react-bootstrap/Modal';
+import ModalFooter from 'react-bootstrap/ModalFooter';
 import ModalBody from 'react-bootstrap/ModalBody';
 //import CustomModalFooter from 'react-bootstrap/CustomModalFooter';
 
@@ -16,6 +18,9 @@ export const PaginationButton = styled(Button)`
 `;
 
 export const MovieContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 `;
 
 export const MovieDetailsContainer = styled.div`
@@ -63,7 +68,15 @@ export const MovieListContainer = styled.div`
     padding: 20px;
 `;
 
-export const CustomModal = styled(ModalBody)`
+export const CustomModal = styled(Modal)`
+
+`;
+
+export const modalBody = styled(ModalBody)`
+
+`;
+
+export const modalFooter = styled(ModalFooter)`
 
 `;
 

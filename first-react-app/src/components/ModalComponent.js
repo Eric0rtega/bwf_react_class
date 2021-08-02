@@ -1,5 +1,6 @@
 import React from 'react';
 import ModalBody from 'react-bootstrap/ModalBody';
+import ModalFooter from 'react-bootstrap/ModalFooter';
 import Button from 'react-bootstrap/Button';
 
 import { CustomModalFooter, CustomModal } from './styled';
@@ -26,9 +27,9 @@ export const ModalComponent = ({show, onClose, children}) => {
                 <ModalBody>
                     { children }
                 </ModalBody>
-                <CustomModalFooter>
+                <ModalFooter>
                     <Button type="button" variant="danger" onClick={onClose}>Close</Button>
-                </CustomModalFooter>
+                </ModalFooter>
             </CustomModal>
         );
 }

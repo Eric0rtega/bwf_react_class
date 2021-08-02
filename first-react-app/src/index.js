@@ -10,7 +10,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import { MovieList } from './components/MovieList';
 import { UserMovieList } from './components/UserMovieList';
 import { NavComponent } from './components/NavComponent';
-import { Pagination } from './components/Pagination';
+//import { Pagination } from './components/Pagination';
 //import { Form } from './components/Form';
 //import { ModalComponent } from './components/ModalComponent';
 //import { MovieDetails } from './components/MovieDetails';
@@ -25,6 +25,7 @@ ReactDOM.render(
         <Route exact path='/' component={MovieList}/>
         <Route exact path='/user-movie-list' component={UserMovieList}/>
       </Switch>
+      {/* <Pagination /> */}
     </Router>
   </React.StrictMode>,
   document.getElementById('root')

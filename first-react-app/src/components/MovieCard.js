@@ -1,7 +1,7 @@
 import { MovieImage, StyledMovieCard } from "./styled";
 import Button from 'react-bootstrap/Button';
 
-export const MovieCard = ({ movie, updateMovieData, addMovieToUserMovieList }) => {
+export const MovieCard = ({ movie, updateMovieData, addMovieToUserMovieList, removeMovieFromList }) => {
     return (
         <StyledMovieCard key={movie.imdbID}>
             <MovieImage src={movie.Poster} alt={`${movie.Title} poster`} fluid />
@@ -11,6 +11,10 @@ export const MovieCard = ({ movie, updateMovieData, addMovieToUserMovieList }) =
                 {
                     addMovieToUserMovieList &&
                     <Button onClick={() => addMovieToUserMovieList(movie.imdbID)}>Add To My List</Button>
+                }
+                {
+                    removeMovieFromList &&
+                    <Button onClick={() => removeMovieFromList(movie)}>Remove From My List</Button>
                 }
             </div>
         </StyledMovieCard>

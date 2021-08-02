@@ -40,7 +40,11 @@ export const MovieList = () => {
     }
 
     const getMoviesByPage = async (page) => {
-        updateMovieData('currentPage', page);
+        //updateMovieData('currentPage', page);
+        updateMovieData(prevstate => ({
+            ...prevstate,
+            currentPage:page
+            }))
         const movieList = await movieService.getMoviesByTitle(movieData.movieTitle, page);
 
         updateMovieData('movieList', movieList.Search);
@@ -59,11 +63,12 @@ export const MovieList = () => {
     return (
         <MovieListPageContainer>
             <SearchBar onSearch={onSearch}/>
-            { !movieData.selectedMovie && movieData.movieList &&
+            { movieData.movieList &&
                 <MovieListContainer>
                     {
                         movieData.movieList.map((movie) => (
                             <MovieCard
+                                key={movie.imdbID}
                                 movie={movie}
                                 updateMovieData={updateMovieData}
                                 addMovieToUserMovieList={addMovieToUserMovieList}
@@ -73,10 +78,11 @@ export const MovieList = () => {
                 </MovieListContainer>
             }
             {
-                !movieData.selectedMovie && movieData.movieList && movieData.pageCount > 0 &&
+                movieData.movieList && movieData.pageCount > 0 &&
                     <Pagination
                         pageCount={movieData.pageCount}
                         getMoviesByPage={getMoviesByPage}
+                        currentPage={movieData.currentPage}
                     />
             }
             {

@@ -17,6 +17,14 @@ export default class UserMovieListService {
 
     localStorage.setItem('movieList', JSON.stringify(movieList));
     }
+
+    removeMovieFromList(id) {
+        const movieList = JSON.parse(localStorage.getItem('movieList'));
+        const updatedList = movieList.list.filter((movie ) => movie.id !== id);
+        movieList.list = updatedList;
+        localStorage.setItem('movieList', JSON.stringify(updatedList));
+    }
+    
     getMovieList() {
         let movieList = localStorage.getItem('movieList');
         if (!movieList) return null;
