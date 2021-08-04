@@ -1,7 +1,7 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import UserMovieListService from '../services/userMovieList.service';
 
-import { MovieListContainer } from '../components/styled';
+import { MovieListContainer, MovieListPageContainer } from '../components/styled';
 
 import { MovieCard } from '../components/MovieCard';
 import { MovieDetails } from '../components/MovieDetails';
@@ -50,20 +50,21 @@ export const UserMovieList = () => {
     }
 
     return (
-        <div>
-            <MovieListContainer>
+            <MovieListPageContainer>
+                <MovieListContainer>
+                    {
+                        movieData.movieList && movieData.movieList.list && movieData.movieList.list.map((movie) => (
+                            <MovieCard movie={movie} updateMovieData={updateMovieData} removeMovieFromList={removeMovieFromList}/>
+                        ))
+                    }
+                </MovieListContainer>
                 {
-                    movieData.movieList && movieData.movieList.list && movieData.movieList.list.map((movie) => (
-                        <MovieCard movie={movie} updateMovieData={updateMovieData} removeMovieFromList={removeMovieFromList}/>
-                    ))
-                }
-            </MovieListContainer>
-            {
                 movieData.selectedMovie && 
                 <ModalComponent show={!!movieData.selectedMovie} onClose={() => updateMovieData('selectedMovie', null)}>
                 <MovieDetails id={movieData.selectedMovie} />
                 </ModalComponent>
-            }
-        </div>
+                }
+            </MovieListPageContainer>
+            
     );
 };

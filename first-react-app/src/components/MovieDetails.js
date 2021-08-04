@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import MovieService from '../services/movie.service';
 
 import Badge from 'react-bootstrap/Badge';

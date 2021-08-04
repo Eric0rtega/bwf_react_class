@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { PaginationContainer } from './styled';
 export const Pagination = ({getMoviesByPage, pageCount, currentPage}) => {
     const restrictedValues = [1, 2, 48, 49, 50];
@@ -20,18 +20,18 @@ export const Pagination = ({getMoviesByPage, pageCount, currentPage}) => {
             : null
     )
     return (
-        <div>
-            <div>
+        <div style={{ width: '100%', height: 'auto', margin: '0 auto', textAlign: 'center' }}>
+            <div style={{ width: '100%', height: 'auto'}}>
                 <button
                     onClick={() => getMoviesByPage(currentPage - 1)}
                     disabled={currentPage  === 1}>
-                    Back
+                    Previous
                 </button>
                 <span>Page {currentPage}</span>
                 <button
                     onClick={() => getMoviesByPage(currentPage + 1)}
                     disabled={currentPage === 50}>
-                    Forward
+                    Next
                 </button>
             </div>
             <div>

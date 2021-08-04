@@ -12,7 +12,7 @@ let App = ({ movieList, getMovieList }) => {
     <div className="App">
       <h1>My Movie List</h1>
       {
-        movieList && movieList.list && movieList.list.mao((movie) => (
+        movieList && movieList.list && movieList.list.map((movie) => (
           <div key={ movie.imdbID }>
             <img src={ movie.Poster } alt={`${movie.Title} poster`} />
             <h3>{ movie.Title }</h3>

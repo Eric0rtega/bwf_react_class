@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 
 export const SearchBar = ({ onSearch }) => {
     const [title, setTitle] = useState();
@@ -12,7 +12,7 @@ export const SearchBar = ({ onSearch }) => {
         <div>
             <form onSubmit={(e) => onFormSubmit(e)}>
                 <div className="form-group">
-                    <label htmlFor="title">Title</label>
+                    <label style={{ color: 'white'}} htmlFor="title">Title &nbsp;</label>
                     <input
                         type="text"
                         name="title"

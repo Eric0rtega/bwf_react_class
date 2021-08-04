@@ -1,5 +1,6 @@
 import { MovieImage, StyledMovieCard } from "./styled";
 import Button from 'react-bootstrap/Button';
+import React from 'react';
 
 export const MovieCard = ({ movie, updateMovieData, addMovieToUserMovieList, removeMovieFromList }) => {
     return (
@@ -14,7 +15,7 @@ export const MovieCard = ({ movie, updateMovieData, addMovieToUserMovieList, rem
                 }
                 {
                     removeMovieFromList &&
-                    <Button onClick={() => removeMovieFromList(movie)}>Remove From My List</Button>
+                    <Button variant="danger" onClick={() => removeMovieFromList(movie)}>Remove From My List</Button>
                 }
             </div>
         </StyledMovieCard>
